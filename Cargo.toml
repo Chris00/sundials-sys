@@ -1,11 +1,11 @@
 [package]
 name = "sundials-sys"
-version = "0.2.4"
+version = "0.3.0"
 authors = ["Jason Dark <email@jkdark.com>", "Arthur Carcano <arthur.carcano@gmail.fr>", "Christophe Troestler <christophe.troestler@umons.ac.be>" ]
-edition = "2018"
+edition = "2021"
 links = "sundials"
 
-description = "A -sys crate for the SUNDIALS suite of ODE solvers"
+description = "A -sys crate for the SUNDIALS suite of ODE, DAE, and NLP solvers"
 categories = ["external-ffi-bindings", "science"]
 repository = "https://github.com/Chris00/sundials-sys"
 license = "BSD-3-Clause"
@@ -14,8 +14,12 @@ keywords = ["ode", "numerics", "ffi", "math", "simulation"]
 exclude = ["**/*.pdf","vendor/examples"]
 
 [build-dependencies]
-bindgen = "0.64"
+bindgen = "0.65"
 cmake = "0.1.35"
+tree-sitter = "0.20"
+
+[build-dependencies.tree-sitter-rust]
+git = "https://github.com/tree-sitter/tree-sitter-rust"
 
 [target.'cfg(target_env = "msvc")'.build-dependencies]
 vcpkg = "0.2.15"
@@ -37,4 +41,4 @@ nvecpthreads = []
 
 [package.metadata.docs.rs]
 
-features = ["build_libraries", "arkode", "cvode", "cvodes", "ida", "idas", "kinsol", "nvecopenmp", "nvecpthreads"]
+features = ["static_libraries", "build_libraries", "arkode", "cvode", "cvodes", "ida", "idas", "kinsol", "nvecopenmp", "nvecpthreads"]
