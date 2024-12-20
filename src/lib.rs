@@ -19,7 +19,7 @@ pub fn comm_no_mpi() -> SUNComm { std::ptr::null_mut() }
 
 /// Create a new communicator type when MPI is not enabled.
 #[cfg(all(sundials_version_major = "7", not(feature="nvecopenmp")))]
-pub fn comm_no_mpi() -> SUNComm { 0 }
+pub fn comm_no_mpi() -> SUNComm { std::ptr::null_mut() }
 
 /// Backward compatibility type.
 #[cfg(sundials_version_major = "7")]
