@@ -16,6 +16,16 @@
 #include <nvector/nvector_openmp.h>
 #endif
 
+#if USE_ARKODE
+#include <arkode/arkode.h>
+#include <arkode/arkode_arkstep.h>       // ARKStep provides explicit, implicit, IMEX additive RK methods.
+#include <arkode/arkode_erkstep.h>       // ERKStep provides explicit RK methods.
+#include <arkode/arkode_mristep.h>       // MRIStep provides multirate RK methods.
+#include <arkode/arkode_sprkstep.h>      // SPRKStep provides symplectic partitioned RK methods.
+#include <arkode/arkode_bbdpre.h>        // BBDPre provides the band-block-diagonal preconditioner.
+#include <arkode/arkode_bandpre.h>       // BANDPre provides the band preconditioner.
+#endif
+
 #if USE_CVODE & !USE_CVODES
 #include <cvode/cvode.h>
 #endif
